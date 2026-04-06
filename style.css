@@ -1,0 +1,266 @@
+
+ /* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #cf9aff, #95c0ff);
+    color: #fff;
+    padding: 4% 10% 10px 10%;
+}
+
+
+
+/* Heading */
+.container h1 {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.container h1 img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+/* Buttons images */
+.container button img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+/* Remove global vertical margin that breaks horizontal layout */
+.container button {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(#9418fd, #571094);
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    padding: 15px 25px;
+    margin: 0; /* fix horizontal layout */
+    cursor: pointer;
+    font-weight: 900;
+}
+
+/* Notes input boxes */
+.input-box {
+    position: relative;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    min-height: 150px;
+    background: #fff;
+    color: #333;
+    margin: 0 20px 20px 0;
+    padding: 20px;
+    outline: none;
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+
+.input-box img {
+    width: 25px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+/* Controls container (buttons) */
+.controls {
+    display: flex;           /* horizontal layout */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;               /* space between buttons */
+    margin-bottom: 0px;
+    flex-wrap: nowrap;       /* prevent wrapping */
+}
+
+
+
+/* Buttons inside controls */
+.controls .btn,
+.controls #saveNotes,
+.controls #viewSavedNotes {
+    display: flex;
+    align-items: center;
+    gap: 6px;                /* spacing between icon + text */
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(#9418fd, #571094);
+    color: white;
+    cursor: pointer;
+    white-space: nowrap;
+    margin: 0;
+    transition: background 0.3s;
+}
+
+.controls .btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.controls .btn:hover,
+.controls #saveNotes:hover,
+.controls #viewSavedNotes:hover {
+    background: #555;
+}
+
+/* Saved Notes section */
+.saved-notes-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(#9418fd, #571094);
+    color: whitesmoke;
+    border-radius: 10px;
+    display: none; 
+    margin-bottom: 60px;
+}
+
+.saved-notes-container h2 {
+    margin-bottom: 10px;
+
+} 
+
+.saved-note {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+} 
+
+
+
+
+
+
+
+/* Responsive: stack buttons vertically on small screens */
+@media (max-width: 480px) {
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls .btn,
+    .controls #saveNotes,
+    .controls #viewSavedNotes {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .input-box {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.input-box:empty:before {
+    content: attr(placeholder);
+    color: #aaa;
+}
+
+/* Note wrapper - desktop */
+.note-wrapper {
+    display: inline-block;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    margin: 20px 20px 20px 0;
+}
+
+/* Title input on new note - desktop */
+.note-title-input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #f3f3f3;
+    color: #333;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+/* Note body box inside wrapper - desktop */
+.note-wrapper .input-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 5px;
+}
+
+/* Phone view */
+@media (max-width: 480px) {
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls .btn,
+    .controls #saveNotes,
+    .controls #viewSavedNotes {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Match note wrapper width to buttons on mobile */
+    .note-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin: 10px 0 20px 0;
+    }
+
+    .note-title-input {
+        width: 100%;
+    }
+
+    .input-box {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .note-wrapper .input-box {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+/* Main content grows naturally */
+.main-content {
+    flex: 1;
+}
+
+/* Footer styling */
+footer {
+    text-align: right;
+    font-style: italic;
+    padding: 10px 0;
+    background: linear-gradient(#95c0ff); /* same as .container */
+    color: #050202;
+    font-weight: bolder;
+    padding: 10px;
+}

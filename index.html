@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container main-content">
+
+        <h1><img src="images/note_Imge.png" alt="">Notes</h1>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn" id="createNote"><img src="images/edit-icon.png" alt="">Create Notes</button>
+            <button id="saveNotes">💾 Save Notes</button>
+            <button id="viewSavedNotes">📁 View Saved Notes</button>
+        </div>
+
+        <!-- Notes container -->
+        <div class="notes-container"></div>
+
+        <!-- Saved Notes container (hidden initially) -->
+        <div class="saved-notes-container" style="display:none;">
+            <h2>Saved Notes</h2>
+            <div id="savedNotesList"></div>
+        </div>
+
+   
+        
+    </div>
+
+
+
+    
+    <footer>
+        <p>© 2026 Otobong Asuquo</p>
+    </footer>
+
+    <script src="./javascript.js"></script>    
+</body>
+</html>
